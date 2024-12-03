@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Heatmap from "./Heatmap";
+import streamingData from "./data/StreamingHistorymusic.json";
+import "./App.css";
 
-function App() {
+function App() 
+{
+  const processData = () => 
+    {
+    return streamingData.map((entry) => ({
+      date: entry.date,
+      songs_played: entry.songs_played,  
+      top_song: entry.track_name,
+      artist: entry.artist_name,
+    }));
+  };
+
+  const data = processData();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My 2023 Spotify Listening Heatmap</h1>
+      <Heatmap data={data} />
     </div>
   );
 }

@@ -1,0 +1,121 @@
+/* heatmap Layout */
+.heatmap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Month sewction */
+.month {
+  width: 280px;
+  margin: 10px;
+}
+
+.month h3 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Days Grid */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+/* Individual Day Cells */
+.day {
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  background-color: #f4f4f4;  
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  font-family: 'Poppins', sans-serif;  
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.day:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  white-space: pre-wrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  animation: fade-in 0.2s forwards;
+}
+
+/* Tooltip Fade in animatokn */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* responsive Design */
+@media (max-width: 768px) {
+  .day {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .month {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .tooltip {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Colors based on activity */
+.day[data-count="0"] {
+  background-color: #e0e0e0; /* no activity */
+}
+
+.day[data-count="1"] {
+  background-color: #c6e48b; /* little activity */
+}
+
+.day[data-count="2"] {
+  background-color: #7bc96f; /* moderate activity */
+}
+
+.day[data-count="3"] {
+  background-color: #239a3b; /* high activity */
+}
+
+.day[data-count="4"] {
+  background-color: #196127; /* v high activity */
+}

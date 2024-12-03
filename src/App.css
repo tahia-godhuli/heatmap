@@ -1,38 +1,64 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #43A047;  
+  font-family: 'Poppins', sans-serif;  
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.App {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.heatmap-container {
+  margin: 20px auto;
 }
 
-.App-link {
-  color: #61dafb;
+.details {
+  margin-top: 20px;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.details li {
+  margin-bottom: 10px;
+  background: #e8e8e8;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Heatmap Colors */
+.color-empty {
+  fill: #ebedf0;
+}
+
+.color-scale-1 {
+  fill: #c6e48b;
+}
+
+.color-scale-2 {
+  fill: #7bc96f;
+}
+
+.color-scale-3 {
+  fill: #239a3b;
+}
+
+.color-scale-4 {
+  fill: #196127;
 }
